@@ -1,0 +1,20 @@
+/* Slider.css */
+
+/* Hide navigation buttons by default */
+.slider-container .swiper-button-prev,
+.slider-container .swiper-button-next {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  
+}
+
+/* Show navigation buttons only on hover */
+.slider-container:hover .swiper-button-prev,
+.slider-container:hover .swiper-button-next {
+  opacity: 0;
+}
+
+/* Tagline and subtitle styling */
+.slider-container .swiper-slide .text-center {
+  z-index: 100;
+}

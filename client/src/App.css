@@ -1,0 +1,35 @@
+.backgroundImage{
+  /* background-image: url('https://img.freepik.com/free-photo/shop-clothing-clothes-shop-hanger-modern-shop-boutique_1150-8886.jpg?w=740&t=st=1728205161~exp=1728205761~hmac=99125400677ec3512609ec0ad42e21117b809604c7e377ec35e939f2480a0f70'); */
+  background-image: url('../src/assets/imgs/facility.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.overlay{
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.4);
+}
+
+.overlayOtherPage{
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.6);
+}
+
+.textShadow{
+  text-shadow: 5px 5px 2px rgba(17, 16, 16, 0.781);
+}
+.paraTextShadow{
+  text-shadow: 2px 2px 2px rgba(24, 23, 23, 0.384);
+}
+.active{
+  border-bottom: 2x solid rgb(70, 4, 4);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
