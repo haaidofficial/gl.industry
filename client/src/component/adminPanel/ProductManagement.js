@@ -71,7 +71,7 @@ const ProductManagement = () => {
                                     >
                                         <img
                                             className='w-[200px] h-[140px]  rounded-xl'
-                                            src={`http://localhost:8080/uploads/${product.image}`} alt={product.slug}
+                                            src={`${process.env.REACT_APP_BASE_URL}/uploads/${product.image}`} alt={product.slug}
                                         />
                                         <h2 className="font-bold text-lg">{product.name}</h2>
                                         {/* <p className="text-gray-500 ">{product.description}</p> */}

@@ -19,7 +19,7 @@ const Category = () => {
     }, []);
 
     // const handleSubCategories = async (parentCategoryId) => {
-    //     const response = await axios.get(`http://localhost:8080/api/subcategories/${parentCategoryId}`);
+    //     const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/subcategories/${parentCategoryId}`);
     //     setSubCategories(response.data);
     //     setActiveCategory(parentCategoryId); // Set the active category on click     
     // };

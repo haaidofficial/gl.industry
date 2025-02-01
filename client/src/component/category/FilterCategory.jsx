@@ -144,7 +144,7 @@ const FilterCategory = () => {
                                 className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
                             >
                                 <img
-                                    src={`http://localhost:8080/uploads/${product.image}`}
+                                    src={`${process.env.REACT_APP_BASE_URL}/uploads/${product.image}`}
                                     alt={product.name}
                                     className="w-full h-40 p-2 object-cover"
                                 />

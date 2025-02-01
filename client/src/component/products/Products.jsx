@@ -29,7 +29,7 @@ const Products = () => {
                             <div key={item._id} className='uppercase text-white xl:w-60 xl:h-60 py-2 sm:w-40 sm:h-40 w-36 h-36 my-2 border rounded-2xl flex flex-col justify-center hover:scale-110 hover:transition-all transition-all items-center bg-gray-700 mx-3 shadow-xl'>
                                 <img
                                     className='w-[92%] h-[92%] rounded-xl'
-                                    src={`http://localhost:8080/uploads/${item.image}`}
+                                    src={`${process.env.REACT_APP_BASE_URL}/uploads/${item.image}`}
                                     alt={item.name}
                                 />
                                 {item.name}
