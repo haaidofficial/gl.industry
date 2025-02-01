@@ -22,7 +22,7 @@ exports.createSlide = async (req, res) => {
     }
 
     const { title, description } = req.body;
-    const imageUrl = `http://localhost:8080/uploads/${req.file.filename}`;
+    const imageUrl = `${process.env.BACKEND_URL}/uploads/${req.file.filename}`;
     const slide = new SliderImage({ imageUrl, title, description });
     await slide.save();
     res.json(slide);
@@ -46,7 +46,7 @@ exports.updateSlide = async (req, res) => {
 
     // Update fields
     if (req.file) {
-      slide.imageUrl = `http://localhost:8080/uploads/${req.file.filename}`;
+      slide.imageUrl = `${process.env.BACKEND_URL}/uploads/${req.file.filename}`;
     }
     if (title !== undefined) {
       slide.title = title;
