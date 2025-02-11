@@ -9,40 +9,40 @@ import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
 import './Slider.css';  // Import custom CSS
 
 const Slider = () => {
-    const [slides, setSlides] = useState([]);
-       const [loading, setLoading] = useState(true);
-       const [error, setError] = useState(null);
-   
-useEffect(() => {
-  const fetchSlides = async () => {
-    try {
-      const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/slides`);
-      setSlides(response.data);
-      setLoading(false);
-    } catch (err) {
-      setError("Failed to fetch slides. Please try again later.");
-      setLoading(false);
-    }
-  };
+  const [slides, setSlides] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  fetchSlides();
-}, []);
+  useEffect(() => {
+    const fetchSlides = async () => {
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/slides`);
+        setSlides(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError("Failed to fetch slides. Please try again later.");
+        setLoading(false);
+      }
+    };
 
-if (loading) {
-  return (
-    <div className="flex justify-center items-center h-screen">
-      <p className="text-lg font-semibold">Loading...</p>
-    </div>
-  );
-}
+    fetchSlides();
+  }, []);
 
-if (error) {
-  return (
-    <div className="flex justify-center items-center h-screen">
-      <p className="text-lg font-semibold text-red-600">{error}</p>
-    </div>
-  );
-}
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-lg font-semibold">Loading...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-lg font-semibold text-red-600">{error}</p>
+      </div>
+    );
+  }
 
   return (
     <Swiper
@@ -53,7 +53,7 @@ if (error) {
       loop
       spaceBetween={50}
       slidesPerView={1}
-      className="w-full h-[80vh] mx-auto slider-container"
+      className="w-full xl:h-[80vh] md:h-[40vh] sm:h-[40vh] h-[40vh] mx-auto text-center slider-container"
       autoplay={{ delay: 3000, disableOnInteraction: false }}
     >
       {slides.map((slide) => (
@@ -63,19 +63,19 @@ if (error) {
             <h2 className="text-3xl md:text-4xl font-bold mb-2 font-sans">{slide.tagline}</h2>
             <p className="text-lg md:text-xl opacity-90">{slide.subtitle}</p>
           </div> */}
-         {(slide.title || slide.description) && (
-                                <div className="absolute inset-0 bg-black bg-opacity-75 text-white flex flex-col justify-center items-center p-4">
-                                    {slide.title && (
-                                        <h2 className="text-[5vmax] font-mono mb-2">{slide.title}</h2>
-                                    )}
-                                    {slide.description && (
-                                        <p className="text-xl text-center mt-[-10px] italic">{slide.description}</p>
-                                    )}
-                                </div>
-                            )}
+          {(slide.title || slide.description) && (
+            <div className="absolute inset-0 bg-black bg-opacity-75 text-white flex flex-col justify-center font-mono items-center p-4">
+              {slide.title && (
+                <h2 className="text-4xl/6 font-mono mb-2 w-[80%] tracking-tight">{slide.title}</h2>
+              )}
+              {slide.description && (
+                <p className="text-md text-center mt-[10px] italic">{slide.description}</p>
+              )}
+            </div>
+          )}
         </SwiperSlide>
       ))}
-    
+
     </Swiper>
   );
 };

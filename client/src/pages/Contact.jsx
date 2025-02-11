@@ -39,7 +39,7 @@ useEffect(() => {
         {/* </div>
       </div> */}
 
-      <div className="min-h-[60vh] xl:py-2 md:py-4 sm:py-4 py-4 bg-red-700 text-white flex items-center justify-center">
+      <div className="my-4 in-h-[60vh] xl:py-2 md:py-4 sm:py-4 py-4 bg-red-700 text-white flex items-center justify-center">
         <div className="w-full max-w-5xl mx-auto p-4 pt-0 lg:p-10">
           {/* Header */}
           <div className="text-center xl:mb-12 md:mb-8 sm:mb-4 mb-4">
@@ -140,11 +140,11 @@ useEffect(() => {
           </div>
         </div>
       </div>
-      <div className="w-full h-fit my-5">
+      {/* <div className="w-full h-fit my-5">
         <div className="w-[95%] h-[60vh] mx-auto">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19781.578525748144!2d77.25078313197416!3d28.781583710497387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cff15cad3ae2d%3A0xa6d5925ef63a9ca4!2sTrans%20Delhi%20Signature%20City%2C%20Ghaziabad%2C%20Uttar%20Pradesh%20201102!5e0!3m2!1sen!2sin!4v1735220599361!5m2!1sen!2sin" width="100%" height="100%" allowFullScreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Tronica Ghaziabad"></iframe>
         </div>
-      </div>
+      </div> */}
 
     </>
 

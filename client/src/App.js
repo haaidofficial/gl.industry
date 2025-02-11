@@ -10,7 +10,7 @@ import CategoryManagement from './component/adminPanel/CategoryManagement';
 import SubCategoryManagement from './component/adminPanel/SubCategoryManagement';
 import ProductManagement from './component/adminPanel/ProductManagement';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Service from './pages/Service';
+// import Service from './pages/Service';
 import CreateProduct from './component/adminPanel/CreateProduct';
 import ProductDetails from './component/adminPanel/ProductDetails';
 import EditProduct from './component/adminPanel/EditProduct';
@@ -23,7 +23,8 @@ import AdminSliderPage from './component/adminPanel/AdminSliderPage';
 import FirstSignup from './component/FirstSignup';
 
 
-// import TopLine from './component/TopLine';
+import TopLine from './component/TopLine';
+import FilterCalalougePage from './component/category/FilterCalalougePage';
 
 
 function App() {
@@ -31,15 +32,16 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        {/* <TopLine /> */}
+        <TopLine />
         <Navbar />
         <AdminNav />
         <Routes >
           <Route path='/' element={<Home />} />
           <Route path='/aboutUs' element={<About />} />
           <Route path='/products' element={<Product />} />
-          <Route path='/services' element={<Service />} />
+          {/* <Route path='/services' element={<Service />} /> */}
           <Route path='/contactUs' element={<Contact />} />
+          <Route path='/products/:name' element={<FilterCalalougePage />} />
           <Route path="/first-admin/signup" element={<FirstSignup />} />
 
           {/* AdminPanel */}
@@ -56,6 +58,7 @@ function App() {
           <Route path="/setting" element={<Setting />} />
           <Route path="/slider-handle" element={<AdminSliderPage />} />
         </Routes>
+        
         <Footer />
 
       </BrowserRouter>

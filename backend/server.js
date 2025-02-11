@@ -16,7 +16,15 @@ connectDB();
 
 const app = express();
 app.use(express.json());
-app.use(cors())
+
+app.use(
+    cors({
+        origin: "*", // Replace with your frontend URL
+        methods: "GET,POST,PUT,DELETE",
+        allowedHeaders: "Content-Type,Authorization",
+    })
+);
+
 
 
 // Serve static files from the uploads directory
@@ -32,7 +40,7 @@ app.use('/api/contact', contactRouter)
 app.use("/api", sliderRoutes);
 
 app.get("/servertest",(req,res)=>{
-    res.send("server running")
+    res.send("server running...................")
 })
 
 const PORT = process.env.PORT || 8080;

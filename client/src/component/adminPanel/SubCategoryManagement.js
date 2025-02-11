@@ -14,6 +14,7 @@ const SubCategoryManagement = () => {
     const [parentCategory, setParentCategory] = useState('');
     const [description, setDescription] = useState('');
     const [status, setStatus] = useState('true');
+    const [image, setImage] = useState(null);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const [editId, setEditId] = useState(null);
@@ -53,32 +54,63 @@ const SubCategoryManagement = () => {
         }
     };
 
+    // const handleAddOrEditCategory = async () => {
+    //     try {
+    //         if (editId) {
+    //             await axios.put(`${process.env.REACT_APP_BASE_URL}/api/subcategories/${editId}`, {
+    //                 name,
+    //                 parentCategory,
+    //                 description,
+    //                 status,
+    //             });
+    //             setSuccess('Subcategory updated successfully');
+    //         } else {
+    //             await axios.post(`${process.env.REACT_APP_BASE_URL}/api/subcategories`, {
+    //                 name,
+    //                 parentCategory,
+    //                 description,
+    //                 status,
+    //             });
+    //             setSuccess('Subcategory created successfully');
+    //         }
+    //         fetchSubCategories();
+    //         resetForm();
+    //     } catch (error) {
+    //         console.error('Error:', error);
+    //         setError('An error occurred while processing the subcategory');
+    //     }
+    // };
+
+
     const handleAddOrEditCategory = async () => {
         try {
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('parentCategory', parentCategory);
+            formData.append('description', description);
+            formData.append('status', status);
+            if (image) {
+                formData.append('image', image);
+            }
+
             if (editId) {
-                await axios.put(`${process.env.REACT_APP_BASE_URL}/api/subcategories/${editId}`, {
-                    name,
-                    parentCategory,
-                    description,
-                    status,
+                await axios.put(`${process.env.REACT_APP_BASE_URL}/api/subcategories/${editId}`, formData, {
+                    headers: { 'Content-Type': 'multipart/form-data' },
                 });
                 setSuccess('Subcategory updated successfully');
             } else {
-                await axios.post(`${process.env.REACT_APP_BASE_URL}/api/subcategories`, {
-                    name,
-                    parentCategory,
-                    description,
-                    status,
+                await axios.post(`${process.env.REACT_APP_BASE_URL}/api/subcategories`, formData, {
+                    headers: { 'Content-Type': 'multipart/form-data' },
                 });
                 setSuccess('Subcategory created successfully');
             }
             fetchSubCategories();
             resetForm();
         } catch (error) {
-            console.error('Error:', error);
             setError('An error occurred while processing the subcategory');
         }
     };
+
 
     const handleDeleteCategory = async (id) => {
         try {
@@ -187,6 +219,12 @@ const SubCategoryManagement = () => {
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                         />
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={(e) => setImage(e.target.files[0])}
+                            className="p-2 border border-gray-300 rounded mb-4 w-full"
+                        />
                         <button
                             onClick={handleAddOrEditCategory}
                             className="bg-blue-500 text-white p-2 rounded w-full"
@@ -204,35 +242,43 @@ const SubCategoryManagement = () => {
                     </div>}
 
                     <div className='h-[75vh] overflow-y-scroll xl:w-[60%] sm:w-[100%] w-[100%]'>
-                    <table className=" xl:w-[100%] md:w-[100%] sm:w-[100%] w-[100%] border xl:order-1 md:order-2 sm:order-2 order-2 my-5">
-                        <thead>
-                            <tr className='h-12 bg-[#3b82f6] text-white'>
-                                <th>Sr.</th>
-                                <th>Main Category</th>
-                                <th>Sub Category</th>
-                                <th>Description</th>
-                                {/* <th>Status</th> */}
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {subCategories.map((subcategory, index) => (
-                                <tr key={subcategory._id} className='text-center h-11 border'>
-                                    <td>{index + 1}</td>
-                                    <td>{subcategory.parentCategory?.name || "N/A"}</td>
-                                    <td>{subcategory.name}</td>
-                                    <td>{subcategory.description}</td>
-                                    {/* <td>{subcategory.status === 'true' ? "Active" : "Inactive"}</td> */}
-                                    <td className='flex items-center justify-center h-11'>
-                                        <FaEdit className='text-xl text-blue-700 mr-1 cursor-pointer' onClick={() => handleEditCategory(subcategory)} />
-                                        <MdDelete className='text-2xl text-red-700 ml-2 cursor-pointer' onClick={() => handleDeleteCategory(subcategory._id)} />
-                                    </td>
+                        <table className=" xl:w-[100%] md:w-[100%] sm:w-[100%] w-[100%] border xl:order-1 md:order-2 sm:order-2 order-2 my-5">
+                            <thead>
+                                <tr className='h-12 bg-[#3b82f6] text-white'>
+                                    <th>Sr.</th>
+                                  
+                                    <th>Main Category</th>
+                                    <th>Sub Category</th>
+                                    <th>Image</th>
+                                    <th>Description</th>
+                                    {/* <th>Status</th> */}
+                                    <th>Action</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {subCategories.map((subcategory, index) => (
+                                    <tr key={subcategory._id} className='capitalize text-center h-11 border'>
+                                        <td>{index + 1}</td>
+                                        
+                                        <td>{subcategory.parentCategory?.name || "N/A"}</td>
+                                        <td>{subcategory.name}</td>
+                                        <td>
+                                            {
+                                                <img src={`${process.env.REACT_APP_BASE_URL}/uploads/${subcategory.image}`} alt="Subcategory" className="w-16 h-16 object-cover" />
+                                            }
+                                        </td>
+                                        <td>{subcategory.description}</td>
+                                        {/* <td>{subcategory.status === 'true' ? "Active" : "Inactive"}</td> */}
+                                        <td className='flex items-center justify-center h-11'>
+                                            <FaEdit className='text-xl text-blue-700 mr-1 cursor-pointer' onClick={() => handleEditCategory(subcategory)} />
+                                            <MdDelete className='text-2xl text-red-700 ml-2 cursor-pointer' onClick={() => handleDeleteCategory(subcategory._id)} />
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
-                    
+
                 </div>
             </div>
 

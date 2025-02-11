@@ -186,7 +186,7 @@ const CategoryManagement = () => {
                             </thead>
                             <tbody>
                                 {categories.map((category, index) => (
-                                    <tr key={category._id} className='text-center h-11 border'>
+                                    <tr key={category._id} className='capitalize text-center h-11 border'>
                                         <td>{index + 1}</td>
                                         <td>{category.name}</td>
                                         <td>{category.description}</td>

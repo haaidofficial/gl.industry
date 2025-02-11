@@ -89,7 +89,7 @@ const AdminSliderPage = () => {
     setDescription(slide.description);
     setEditingSlide(slide);
   };
-
+console.log(slides)
   return (
     <>
 
@@ -121,11 +121,12 @@ const AdminSliderPage = () => {
             ></textarea>
           </div>
           <div>
-            <label className="block text-sm font-medium">Image</label>
+            <label className="block text-sm font-medium">Image (Max Image size 20MB.)</label>
             <input
               type="file"
               onChange={(e) => setImage(e.target.files[0])}
               className="w-full mt-1"
+            
             />
           </div>
           <div className="flex space-x-4">
@@ -159,6 +160,7 @@ const AdminSliderPage = () => {
               className="border border-gray-200 rounded-lg p-4 shadow-md"
             >
               <img
+              // src={`${process.env.REACT_APP_BASE_URL}/uploads/${slide.imageUrl}`} 
                 src={slide.imageUrl}
                 alt={slide.title}
                 className="w-full h-40 object-cover rounded-md mb-4"

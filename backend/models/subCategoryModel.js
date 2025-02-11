@@ -5,6 +5,7 @@ const subCategorySchema = new mongoose.Schema({
   parentCategory: { type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true },
   description: { type: String },
   status: { type: Boolean, default: true },
+  image: { type: String }, // New field for storing image path
 }, { timestamps: true });
 
 subCategorySchema.pre('remove', async function (next) {
