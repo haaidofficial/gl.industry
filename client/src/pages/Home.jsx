@@ -21,7 +21,7 @@ const Home = () => {
                 {/* <Products /> */}
                 <div className='w-full h-fit my-5'>
                     <div className='w-[95%] py-4 mx-auto'>
-                        <h1 className='font-serif my-2 font-mono text-red-900 text-center text-[28px]'>Welcome to G L Industries</h1>
+                        <h1 className='font-serif my-2 text-red-900 text-center text-[28px]'>Welcome to G L Industries</h1>
                         <p className='font-serif pt-0 pl-5 tracking-wider text-md/8 text-center text-gray-600'>
                             At G L Industries, we pride ourselves on being a leading name in the manufacturing of high-quality apparel. With years of expertise and a passion for innovation, we deliver products that blend comfort, durability, and style.
                         </p>
@@ -67,7 +67,7 @@ const Home = () => {
 
                         <div>
                             <h1 className='font-bold text-red-900 italic text-[20px] pt-4'> Our Offerings Include:</h1>
-                            <ul className='font-serif pt-0 pl-5 font-serif text-gray-600'>
+                            <ul className='font-serif pt-0 pl-5 text-gray-600'>
                                 <li className='mt-1 tracking-wider'><strong className='text-red-700 text-[16px]'>Jeans:</strong> Classic, trendy, and tailored to perfection in premium denim.</li>
                                 <li className='mt-1 tracking-wider'><strong className='text-red-700 text-[16px]'>Trousers:</strong> Formal and casual options that redefine sophistication and comfort.</li>
                                 <li className='mt-1 tracking-wider'><strong className='text-red-700 text-[16px]'>T-Shirts:</strong> Versatile designs crafted from the finest knits for everyday wear.</li>

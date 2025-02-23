@@ -39,7 +39,7 @@ useEffect(() => {
         {/* </div>
       </div> */}
 
-      <div className="my-4 in-h-[60vh] xl:py-2 md:py-4 sm:py-4 py-4 bg-red-700 text-white flex items-center justify-center">
+      <div className="my-4 in-h-[60vh] xl:py-2 md:py-4 sm:py-4 py-4 text-[#21a17b] flex items-center justify-center">
         <div className="w-full max-w-5xl mx-auto p-4 pt-0 lg:p-10">
           {/* Header */}
           <div className="text-center xl:mb-12 md:mb-8 sm:mb-4 mb-4">
@@ -51,35 +51,35 @@ useEffect(() => {
             {/* Left Section */}
             <div className="flex-1 space-y-6">
               <div className="flex items-start gap-4">
-                <div className="bg-red-500 p-3 rounded-full">
+                <div className="bg-red-400 p-3 rounded-full">
 
-                  <FaRegAddressCard className="text-[1.5rem]" />
+                  <FaRegAddressCard className="text-[1.5rem] text-white" />
 
                 </div>
                 <div>
                   <h2 className="font-bold text-lg">Address</h2>
-                  <p>M/S G.L.B.M, H-4, Sector D-1, Tronica City,
+                  <p>G.L Industries, H-4, Sector D-1, Tronica City,
                     Ghaziabad-210103</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="bg-red-500 p-3 rounded-full">
+                <div className="bg-red-400 p-3 rounded-full">
 
-                  <FaPhoneFlip className="text-[1.5rem]" />
+                  <FaPhoneFlip className="text-[1.5rem] text-white" />
                 </div>
                 <div>
                   <h2 className="font-bold text-lg">Phone</h2>
                   <p>+91-8383977648</p> 
-                  <p>+91-9212790910</p>                
+                                
               
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="bg-red-500 p-3 rounded-full">
+                <div className="bg-red-400 p-3 rounded-full">
 
-                  <SiMinutemailer className="text-[1.5rem]" />
+                  <SiMinutemailer className="text-[1.5rem] text-white" />
                 </div>
                 <div>
                   <h2 className="font-bold text-lg">Email</h2>
@@ -89,8 +89,8 @@ useEffect(() => {
             </div>
 
             {/* Right Section: Contact Form */}
-            <div className="flex-1 bg-red-900 p-6 rounded-lg shadow-md">
-              <h2 className="text-2xl font-bold mb-4">Send Message</h2>
+            <div className="flex-1 bg-[#21a17b] p-6 rounded-lg shadow-md">
+              <h2 className="text-2xl font-bold mb-4 text-white">Send Message</h2>
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <input
                   type="text"
@@ -98,7 +98,7 @@ useEffect(() => {
                   placeholder="Full Name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full p-3 rounded-lg text-gray-900 outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full p-3 rounded-lg text-gray-900 outline-none focus:ring-2 focus:ring-red-400"
                   required
                 />
                 <input
@@ -107,7 +107,7 @@ useEffect(() => {
                   placeholder="Email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full p-3 rounded-lg text-gray-900 outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full p-3 rounded-lg text-gray-900 outline-none focus:ring-2 focus:ring-red-400"
                   required
                 />
                 <input
@@ -116,7 +116,7 @@ useEffect(() => {
                   placeholder="Mobile number"
                   value={formData.mobile}
                   onChange={handleChange}
-                  className="w-full p-3 rounded-lg text-gray-900 outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full p-3 rounded-lg text-gray-900 outline-none focus:ring-2 focus:ring-red-400"
                   required
                 />
                 <textarea
@@ -124,23 +124,23 @@ useEffect(() => {
                   placeholder="Type your message..."
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full p-3 rounded-lg text-gray-900 outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full p-3 rounded-lg text-gray-900 outline-none focus:ring-2 focus:ring-red-400"
                   required
                 ></textarea>
                 <button
                   type="submit"
-                  className="w-full py-3 bg-red-500 rounded-lg text-white font-bold hover:bg-red-600 transition"
+                  className="w-full py-3 bg-red-400 rounded-lg text-white font-bold hover:bg-red-600 transition"
                 >
-                  Send
+                  SEND
                 </button>
-                {successMessage && <p className="text-green-500 mt-4">{successMessage}</p>}
-                {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
+                {successMessage && <p className="text-green-400 mt-4">{successMessage}</p>}
+                {errorMessage && <p className="text-red-400 mt-4">{errorMessage}</p>}
               </form>
             </div>
           </div>
         </div>
       </div>
-      {/* <div className="w-full h-fit my-5">
+      {/* <div className="w-full h-fit my-4">
         <div className="w-[95%] h-[60vh] mx-auto">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19781.578525748144!2d77.25078313197416!3d28.781583710497387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cff15cad3ae2d%3A0xa6d5925ef63a9ca4!2sTrans%20Delhi%20Signature%20City%2C%20Ghaziabad%2C%20Uttar%20Pradesh%20201102!5e0!3m2!1sen!2sin!4v1735220599361!5m2!1sen!2sin" width="100%" height="100%" allowFullScreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Tronica Ghaziabad"></iframe>
         </div>

@@ -99,6 +99,8 @@ const CreateProduct = () => {
                     status: false,
                 });
                 setImage(null);
+               
+            
             } else {
                 alert('Error creating product!');
             }

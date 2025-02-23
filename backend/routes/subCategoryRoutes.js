@@ -4,7 +4,7 @@ const upload = require('../utils/multerConfig'); // Multer middleware
 const router = express.Router();
 
 router.post('/', upload.single('image'), createSubCategory);
-router.put('/:id', upload.single('image'), updateSubCategory);
+router.put('/:id', upload.single('image'), updateSubCategory);1
 router.get('/', getSubCategory);
 router.get('/:categoryId', getSubCategoriesByCategory);
 router.delete('/:id', deleteSubCategory);

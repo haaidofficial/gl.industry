@@ -5,7 +5,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import SideBar from "../adminPanel/Sidebar"
 import { MdOutlineSpaceDashboard } from "react-icons/md";
-import { MdCancel } from "react-icons/md"; 
+import { MdCancel } from "react-icons/md";
 
 
 const CategoryManagement = () => {
@@ -18,7 +18,7 @@ const CategoryManagement = () => {
     const [editingId, setEditingId] = useState(null); // New state for editing
     const [openSideBar, setSideBar] = useState(false)
     const [CategoryForm, setCAtegoryForm] = useState(false)
-    
+
     const BASE_URL = process.env.REACT_APP_BASE_URL;
     const navigate = useNavigate(); // Initialize navigation
 
@@ -31,18 +31,18 @@ const CategoryManagement = () => {
             fetchCategories();
         }
     }, []);
-  
-  
-        const fetchCategories = async () => {
-            try {
-                const response = await axios.get(`${BASE_URL}/api/categories`);
-                setCategories(response.data);
-            } catch (error) {
-                console.error('Error fetching categories:', error);
-            }
-        };
-   
-    console.log("object")
+
+
+    const fetchCategories = async () => {
+        try {
+            const response = await axios.get(`${BASE_URL}/api/categories`);
+            setCategories(response.data);
+        } catch (error) {
+            console.error('Error fetching categories:', error);
+        }
+    };
+
+    // console.log("object")
 
     const handleAddOrUpdateCategory = async () => {
         setError('');
@@ -120,100 +120,104 @@ const CategoryManagement = () => {
         !CategoryForm ? setCAtegoryForm(true) : setCAtegoryForm(false)
     }
 
+    useEffect(() => {
+        fetchCategories()
+    }, [categories])
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
+
     return (
         <>
-       
-            <div className='ml-1  text-white text-[1.1rem] w-fit  cursor-pointer ' onClick={handleSideBar}>
-                {!openSideBar ? <MdOutlineSpaceDashboard className='text-[2rem] text-[#1f2937]' /> : <MdCancel className='text-[2rem] text-[#1f2937]' />}
-            </div>
-            <div className='flex '>
-                <div className=''>  {openSideBar ? <div className='ml-0 transition-all'><SideBar /></div> : <div className='ml-[-400px] transition-all'><SideBar /></div>}</div>
+            <div className='mb-5'>
+                <div className='ml-1  text-white text-[1.1rem] w-fit  cursor-pointer ' onClick={handleSideBar}>
+                    {!openSideBar ? <MdOutlineSpaceDashboard className='text-[2rem] text-[#1f2937]' /> : <MdCancel className='text-[2rem] text-[#1f2937]' />}
+                </div>
 
-                <div className='w-full'>
-                    <div className='w-full flex justify-between px-2 xl:h-[80vh] md:h-fit sm:h-fit h-fit mt-10 xl:flex-row md:flex-col sm:flex-col flex-col'>
-                        <div
-                            className='xl:hidden md:flex sm:flex flex bg-blue-700 text-white w-fit px-4 py-2 cursor-pointer'
-                            onClick={handleAddCategoryForm}
-                        >
-                            {!CategoryForm ? "Add Category" : "Close"}
-                        </div>
+                <div className='flex '>
+                    <div className=''>  {openSideBar ? <div className='ml-0 transition-all'><SideBar /></div> : <div className='ml-[-400px] transition-all'><SideBar /></div>}</div>
 
-                        <div className={CategoryForm ? 'xl:block' : 'xl:block md:hidden sm:hidden hidden xl:w-[35%] md:w-[100%] sm:w-[100%] w-[100%] xl:order-2 md:order-1 sm:order-1 order-1 mr-6 '}>
-                            <h2 className="text-2xl font-bold mb-4">Manage Categories</h2>
-                            <input
-                                type="text"
-                                placeholder="Category Name"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                className="p-2 border border-gray-300 rounded mb-4 w-full"
-                            />
-                            <textarea
-                                name="description"
-                                placeholder="Description..."
-                                rows="4"
-                                cols="50"
-                                value={description}
-                                onChange={(e) => setDescription(e.target.value)}
-                                className="p-2 border border-gray-300 rounded mb-4 w-full"
-                            />
-                            <select
-                                value={status}
-                                onChange={(e) => setStatus(e.target.value)}
-                                className="p-2 border border-gray-300 rounded mb-4 w-full"
+                    <div className='w-full '>
+                        <div className='w-full flex justify-between px-2 xl:h-[80vh] md:h-fit sm:h-fit h-fit mt-10 xl:flex-row md:flex-col sm:flex-col flex-col'>
+                            <div
+                                className='xl:hidden md:flex sm:flex flex bg-blue-700 text-white w-fit px-4 py-2 cursor-pointer'
+                                onClick={handleAddCategoryForm}
                             >
-                                <option value="true">Active</option>
-                                <option value="false">Inactive</option>
-                            </select>
-                            <button
-                                onClick={handleAddOrUpdateCategory}
-                                className="bg-blue-500 text-white p-2 rounded xl:w-[100%] md:w-[100%] lg:w-[100%] sm:w-[100%] w-[100%]"
-                            >
-                                {editingId ? 'Update Category' : 'Add Category'}
-                            </button>
+                                {!CategoryForm ? "Add Category" : "Close"}
+                            </div>
 
-                            {success && <p className="text-green-500 mt-4">{success}</p>}
-                            {error && <p className="text-red-500 mt-4">{error}</p>}
-                        </div>
-                        <table className=" xl:w-[60%] md:w-[100%] sm:w-[100%] w-[100%] h-fit border xl:order-1 md:order-2 sm:order-2 order-2 my-5 ">
-                            <thead>
-                                <tr className='h-12 text-lg bg-[#3b82f6] text-white'>
-                                    <th>Sr.</th>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    {/* <th>Status</th> */}
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {categories.map((category, index) => (
-                                    <tr key={category._id} className='capitalize text-center h-11 border'>
-                                        <td>{index + 1}</td>
-                                        <td>{category.name}</td>
-                                        <td>{category.description}</td>
-                                        {/* <td>{category.status ? "Active" : "Inactive"}</td> */}
-                                        <td className='flex items-center justify-center h-11'>
-                                            <FaEdit
-                                                onClick={() => handleEdit(category)}
-                                                className='text-xl text-blue-700 mr-1 cursor-pointer'
-                                            />
-                                            <MdDelete
-                                                onClick={() => handleDelete(category._id)}
-                                                className='text-2xl text-red-700 ml-2 cursor-pointer'
-                                            />
-                                        </td>
+                            <div className={CategoryForm ? 'xl:block' : 'xl:block md:hidden sm:hidden hidden xl:w-[35%] md:w-[100%] sm:w-[100%] w-[100%] xl:order-2 md:order-1 sm:order-1 order-1 mr-6 '}>
+                                <h2 className="text-2xl font-bold mb-4">Manage Categories</h2>
+                                <input
+                                    type="text"
+                                    placeholder="Category Name"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    className="p-2 border border-gray-300 rounded mb-4 w-full"
+                                />
+                                <textarea
+                                    name="description"
+                                    placeholder="Description..."
+                                    rows="4"
+                                    cols="50"
+                                    value={description}
+                                    onChange={(e) => setDescription(e.target.value)}
+                                    className="p-2 border border-gray-300 rounded mb-4 w-full"
+                                />
+                                <select
+                                    value={status}
+                                    onChange={(e) => setStatus(e.target.value)}
+                                    className="p-2 border border-gray-300 rounded mb-4 w-full"
+                                >
+                                    <option value="true">Active</option>
+                                    <option value="false">Inactive</option>
+                                </select>
+                                <button
+                                    onClick={handleAddOrUpdateCategory}
+                                    className="bg-blue-500 text-white p-2 rounded xl:w-[100%] md:w-[100%] lg:w-[100%] sm:w-[100%] w-[100%]"
+                                >
+                                    {editingId ? 'Update Category' : 'Add Category'}
+                                </button>
+
+                                {success && <p className="text-green-500 mt-4">{success}</p>}
+                                {error && <p className="text-red-500 mt-4">{error}</p>}
+                            </div>
+                            <table className=" xl:w-[60%] md:w-[100%] sm:w-[100%] w-[100%] h-fit border xl:order-1 md:order-2 sm:order-2 order-2 my-5 ">
+                                <thead>
+                                    <tr className='h-12 text-lg bg-[#3b82f6] text-white'>
+                                        <th>Sr.</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        {/* <th>Status</th> */}
+                                        <th>Action</th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
-
-
+                                </thead>
+                                <tbody>
+                                    {categories.map((category, index) => (
+                                        <tr key={category._id} className='capitalize text-center h-11 border'>
+                                            <td>{index + 1}</td>
+                                            <td>{category.name}</td>
+                                            <td>{category.description}</td>
+                                            {/* <td>{category.status ? "Active" : "Inactive"}</td> */}
+                                            <td className='flex items-center justify-center h-11'>
+                                                <FaEdit
+                                                    onClick={() => handleEdit(category)}
+                                                    className='text-xl text-blue-700 mr-1 cursor-pointer'
+                                                />
+                                                <MdDelete
+                                                    onClick={() => handleDelete(category._id)}
+                                                    className='text-2xl text-red-700 ml-2 cursor-pointer'
+                                                />
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
-
-
         </>
     );
 };

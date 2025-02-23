@@ -96,12 +96,12 @@ console.log(slides)
       <div className='mt-5'>
         <Link to='/dashboard' className='ml-10 px-4 text-[1.2rem]  py-1 rounded-none bg-[#1f2937] text-white'>Back</Link>
       </div>
-      <div className="container xl:w-[60%] md:w-[80%] mx-auto p-6">
+      <div className="container xl:w-[80%] md:w-[80%] mx-auto p-6">
         <h1 className="text-2xl font-bold mb-6">Manage Slider</h1>
 
         {/* Form for adding/updating slides */}
-        <form onSubmit={handleSubmit} className="space-y-4 mb-8">
-          <div>
+        <form onSubmit={handleSubmit} className="space-y-4 mb-8 w-[60%] mx-auto border-dashed border-black/8 border p-5">
+          {/* <div>
             <label className="block text-sm font-medium">Title</label>
             <input
               type="text"
@@ -119,13 +119,13 @@ console.log(slides)
               placeholder="Enter description"
               className="w-full mt-1 p-2 border border-gray-300 rounded-lg"
             ></textarea>
-          </div>
+          </div> */}
           <div>
-            <label className="block text-sm font-medium">Image (Max Image size 20MB.)</label>
+            <label className="block text-sm font-medium ">Image (Max Image size 20MB.)</label>
             <input
               type="file"
               onChange={(e) => setImage(e.target.files[0])}
-              className="w-full mt-1"
+              className="w-full mt-1 "
             
             />
           </div>
@@ -150,7 +150,7 @@ console.log(slides)
 
         {/* List of slides */}
         <div>
-          <p className="my-2 bg-gray-700 p-2 font-bold text-white text-center text-lg">Max 4 Slides you can add. Title and description field's are not important.</p>
+          <p className="my-2 bg-gray-700 p-2 font-bold text-white text-center text-lg">Max 4 Slides you can add.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 

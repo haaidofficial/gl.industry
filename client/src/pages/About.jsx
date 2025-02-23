@@ -20,16 +20,16 @@ const About = () => {
 
   return (
     <>
-      <div className='w-full h-[50vh] backgroundImage mb-10'>
+      <div className='w-full xl:h-[50vh] md:h-[50vh] sm:h-[30vh] h-[30vh] backgroundImage mb-10'>
         <div className='w-full h-[100%] flex justify-end items-center flex-col overlayOtherPage '>
-          <h1 className='text-[7vmax] font-bold text-white text-justify textShadow mt-2 mb-0 '>About <span className='text-red-900'>Us</span></h1>
+          <h1 className='text-[6vmax] font-bold text-white text-justify textShadow mt-2 mb-0 font-serif'>About <span className='text-blue-300'>Us</span></h1>
         </div>
       </div>
       <div className='h-fit py-5 flex justify-between items-center px-5 flex-wrap mb-8'>
         <div className='xl:w-[45%] md:w-[95%]'>
-          <img className='w-full h-[350px] mt-[10px]' src={p1} alt="GLBM" />
+          <img className='w-full h-[350px] mt-[10px]' src={p1} alt="GLIndustries" />
         </div>
-        <div className='xl:w-[50%] md:w-[95%] '>
+        <div className='xl:w-[50%] md:w-[95%] text-gray-600'>
           <p className='text-justify mt-2 font-serif'>
             G.L Industries came into being in July 2008 with the initial idea seeded by the Proprietor
             Ms. Sheela Goyal come with an experience of more than 5 years. Their guidance and
@@ -57,7 +57,7 @@ const About = () => {
 
       <div className='w-full h-fit my-5 flex justify-center items-center'>
         <div className='xl:w-[100%] md:w-[100%] bg-gray-200 h-fit px-2 py-2 flex justify-center items-center'>
-          <h1 className='px-20 w-full xl:text-xl md:text-lg mt-0 text-white text-center py-8 bg-red-800 mx-auto'>One of the India's fastest growing apparel manufacturer with 05
+          <h1 className='px-20 w-full xl:text-xl md:text-lg mt-0 text-white text-center py-8 bg-red-400 mx-auto'>One of the India's fastest growing apparel manufacturer with 05
             factories based in DELHI and UP.
           </h1>
         </div>
@@ -73,9 +73,9 @@ const About = () => {
       <div className='w-[97%] bg-gray-200 px-4 py-2'>
         <h1 className='font-bold text-red-900 italic text-[20px]  mt-0'>Categories We Excel In:</h1>
         <ul className='font-serif pt-0 pl-5'>
-          <li className='mt-1 tracking-wider'><strong className='text-red-700 text-[16px]'>Woven Fabrics: </strong> Crafted with precision for strength and durability.</li>
-          <li className='mt-1 tracking-wider'><strong className='text-red-700 text-[16px]'>Knits: </strong> Soft and flexible materials, perfect for comfortable wear.</li>
-          <li className='mt-1 tracking-wider'><strong className='text-red-700 text-[16px]'>Denim: </strong> High-quality denim that stands the test of time in fashion and utility.</li>
+          <li className='mt-1 tracking-wider'><strong className='text-red-700 text-[16px]'>Woven Fabrics: </strong><span className='text-gray-600'> Crafted with precision for strength and durability.</span></li>
+          <li className='mt-1 tracking-wider'><strong className='text-red-700 text-[16px]'>Knits: </strong><span className='text-gray-600'> Soft and flexible materials, perfect for comfortable wear.</span></li>
+          <li className='mt-1 tracking-wider'><strong className='text-red-700 text-[16px]'>Denim: </strong><span className='text-gray-600'> High-quality denim that stands the test of time in fashion and utility.</span></li>
 
         </ul>
       </div>
@@ -86,7 +86,7 @@ const About = () => {
           <img className='w-[100%] h-[320px] mt-[-10px]' src={Woven} alt="GLBM" />
         </div>
         <div className='xl:w-[50%] md:w-[95%] '>
-          <p className='text-justify mt-2 font-serif'>
+          <p className='text-justify mt-2 font-serif text-gray-600'>
             Woven fabric is any textile formed by weaving. Woven fabrics
             are often created on a loom, and made of many threads woven
             on a warp and a weft. Technically, a woven fabric is any fabric
@@ -101,7 +101,7 @@ const About = () => {
           <img className='w-[100%] h-[320px] mt-[-10px]' src={kint} alt="GLBM" />
         </div>
         <div className='xl:w-[50%] md:w-[95%] xl:order-1 sm:order-2 '>
-          <p className='text-justify mt-2 font-serif'>
+          <p className='text-justify mt-2 font-serif text-gray-600'>
             Knit fabric is made from one continuous fiber, like yarn or thread, which is repeatedly
             looped to form a garment. If you look closely at a piece of knit clothing, you'll see a pattern that
             looks like rows of fine braids throughout the material.
@@ -114,7 +114,7 @@ const About = () => {
           <img className='w-[100%] h-[320px] mt-[-10px]' src={Fabric} alt="GLBM" />
         </div>
         <div className='xl:w-[50%] md:w-[95%] '>
-          <p className='text-justify mt-2 font-serif'>
+          <p className='text-justify mt-2 font-serif text-gray-600'>
             Denim. Denim is a durable, rugged cotton twill
             fabric that's most commonly used in jeans, jackets and
             overalls, as well as in other types of clothing.
@@ -122,7 +122,7 @@ const About = () => {
             common denim is INDIGO denim in which the
             WARP thread is dyed while the WEFT thread is left
             white.  </p>
-          <p className='text-justify mt-2 font-serif'>  As a result of the warp-faced twill weaving, one
+          <p className='text-justify mt-2 font-serif text-gray-600'>  As a result of the warp-faced twill weaving, one
             side of the textile is dominated by the blue warp
             threads and the other side is dominated by the white
             weft threads. JEANS fabricated from this cloth are thus
@@ -135,10 +135,10 @@ const About = () => {
         <div className='w-[95%] py-4 mx-auto bg-gray-200 px-4'>
           <h1 className='font-bold text-red-900 italic text-[20px] pt-4'>Why Choose G L Industries?</h1>
           <ul className='font-serif pt-0 pl-5'>
-            <li className='mt-1 tracking-wider'> <strong className='text-red-700 text-[16px]'>Unmatched Quality: </strong> Every product undergoes stringent quality checks to ensure excellence.</li>
-            <li className='mt-1 tracking-wider'>  <strong className='text-red-700 text-[16px]'>Versatility: </strong> Our wide range ensures you find the perfect fit for every occasion.</li>
-            <li className='mt-1 tracking-wider'>  <strong className='text-red-700 text-[16px]'>Innovation & Trendsetting: </strong> We stay ahead of the curve by designing garments that cater to evolving fashion trends.</li>
-            <li className='mt-1 tracking-wider'>  <strong className='text-red-700 text-[16px]'>Sustainability: </strong> We are committed to environmentally friendly practices in every step of our manufacturing process.</li>
+            <li className='mt-1 tracking-wider'> <strong className='text-red-700 text-[16px]'>Unmatched Quality: </strong> <span className='text-gray-600'> Every product undergoes stringent quality checks to ensure excellence.</span></li>
+            <li className='mt-1 tracking-wider'>  <strong className='text-red-700 text-[16px]'>Versatility: </strong><span className='text-gray-600'> Our wide range ensures you find the perfect fit for every occasion.</span></li>
+            <li className='mt-1 tracking-wider'>  <strong className='text-red-700 text-[16px]'>Innovation & Trendsetting: </strong><span className='text-gray-600'> We stay ahead of the curve by designing garments that cater to evolving fashion trends.</span></li>
+            <li className='mt-1 tracking-wider'>  <strong className='text-red-700 text-[16px]'>Sustainability: </strong><span className='text-gray-600'> We are committed to environmentally friendly practices in every step of our manufacturing process.</span></li>
           </ul>
         </div>
       </div>
@@ -164,13 +164,13 @@ const About = () => {
         </div>
         <div className='xl:w-[50%] md:w-[95%] order-2'>
           <h1 className="text-center text-[2.5rem] text-red-900">G.L Industries</h1>
-          <ul className='ml-5'>
+          <ul className='ml-5 text-gray-600'>
             <li className='list-disc '>CUSTOMIZED</li>
             <li className='list-disc'>SAMPLING</li>
             <li className='list-disc'>BENCHMARKING</li>
           </ul>
           <h2 className="text-left mt-5 text-[1.5rem] text-red-900">OverView</h2>
-          <ul className='ml-5'>
+          <ul className='ml-5 text-gray-600'>
             <li className='list-disc'>Total Garments 36 Lacs Per Annum</li>
             <li className='list-disc'>Implemented scientific way of enhancing our productivity at
               par with international standards</li>

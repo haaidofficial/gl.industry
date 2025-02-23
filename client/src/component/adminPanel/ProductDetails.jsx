@@ -72,7 +72,9 @@ const ProductDetails = () => {
         <>
             <div className='z-10 flex items-center justify-between px-10 bg-[#1f2937] py-2 mb-[0.5px] relative top-[-65px]'>
                 <div >
-                    <div className='text-[2rem] font-bold text-red-700  px-2'><NavLink to='/'>GLBM</NavLink> </div>
+                <div className="text-[2rem] font-bold text-red-700 px-2">
+                    <NavLink to="/">G.L Industries</NavLink>
+                </div>
                 </div>
                 <div className='flex items-center'>
                     <div className='w-12 h-12 border rounded-full mr-2 flex items-center justify-center text-[1.5rem] text-white'> <FaRegUser /> </div>
@@ -85,9 +87,9 @@ const ProductDetails = () => {
             {product ? (
                 <div className='w-full min-h-[90vh] max-h-fit my-5 '>
                     <div className="w-[60%] flex justify-between mx-auto mt-10 bg-white rounded-lg shadow-md p-4">
-                        <div className='w-[50%]'>
+                        <div className='w-[50%] h-80'>
                             <img src={`${process.env.REACT_APP_BASE_URL}/uploads/${product.image}`} alt={product.slug}
-                                className="w-[100%] h-64 object-cover rounded-lg" />
+                                className="w-[100%] h-[100%] object-scale-down rounded-lg" />
 
                         </div >
                         <div className='w-[50%] ml-10'>

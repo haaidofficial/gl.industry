@@ -20,6 +20,7 @@ const SubCategoryManagement = () => {
     const [editId, setEditId] = useState(null);
     const [openSideBar, setSideBar] = useState(false);
     const [subCategoryForm, setSubCategoryForm] = useState(false);
+    const [filterCategory, setFilterCategory] = useState('')
 
     const navigate = useNavigate();
 
@@ -54,34 +55,6 @@ const SubCategoryManagement = () => {
         }
     };
 
-    // const handleAddOrEditCategory = async () => {
-    //     try {
-    //         if (editId) {
-    //             await axios.put(`${process.env.REACT_APP_BASE_URL}/api/subcategories/${editId}`, {
-    //                 name,
-    //                 parentCategory,
-    //                 description,
-    //                 status,
-    //             });
-    //             setSuccess('Subcategory updated successfully');
-    //         } else {
-    //             await axios.post(`${process.env.REACT_APP_BASE_URL}/api/subcategories`, {
-    //                 name,
-    //                 parentCategory,
-    //                 description,
-    //                 status,
-    //             });
-    //             setSuccess('Subcategory created successfully');
-    //         }
-    //         fetchSubCategories();
-    //         resetForm();
-    //     } catch (error) {
-    //         console.error('Error:', error);
-    //         setError('An error occurred while processing the subcategory');
-    //     }
-    // };
-
-
     const handleAddOrEditCategory = async () => {
         try {
             const formData = new FormData();
@@ -107,7 +80,8 @@ const SubCategoryManagement = () => {
             fetchSubCategories();
             resetForm();
         } catch (error) {
-            setError('An error occurred while processing the subcategory');
+            console.error('Error:', error);
+            setError(error.message, 'An error occurred while processing the subcategory');
         }
     };
 
@@ -167,7 +141,23 @@ const SubCategoryManagement = () => {
             <div className='ml-1  text-white text-[1.1rem] w-fit  cursor-pointer ' onClick={handleSideBar}>
                 {!openSideBar ? <MdOutlineSpaceDashboard className='text-[2rem] text-[#1f2937]' /> : <MdCancel className='text-[2rem] text-[#1f2937]' />}
             </div>
-
+            <div className='ml-40 w-[300px] h-10 flex justify-between items-center'>
+                <div className='text-xl w-fit ml-1'>
+                    Filter Category:
+                </div>
+                <select
+                    onChange={(e) => setFilterCategory(e.target.value)}
+                    className="px-2 border h-10 border-gray-300 rounded w-40 capitalize"
+                    value={filterCategory}
+                >
+                    <option value="">All Category</option>
+                    {categories.map((category) => (
+                        <option value={category._name} key={category._id} className="mb-2 ">
+                            {category.name}
+                        </option>
+                    ))}
+                </select>
+            </div>
             <div className='flex mt-0 '>
                 <div>
                     <div className=''>  {openSideBar ? <div className='ml-0 transition-all'><SideBar /></div> : <div className='ml-[-400px] transition-all'><SideBar /></div>}</div>
@@ -246,7 +236,7 @@ const SubCategoryManagement = () => {
                             <thead>
                                 <tr className='h-12 bg-[#3b82f6] text-white'>
                                     <th>Sr.</th>
-                                  
+
                                     <th>Main Category</th>
                                     <th>Sub Category</th>
                                     <th>Image</th>
@@ -256,15 +246,15 @@ const SubCategoryManagement = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {subCategories.map((subcategory, index) => (
+                                {subCategories.filter((item)=> filterCategory !== "" ? item.parentCategory.name === filterCategory : subCategories).map((subcategory, index) => (
                                     <tr key={subcategory._id} className='capitalize text-center h-11 border'>
                                         <td>{index + 1}</td>
-                                        
+
                                         <td>{subcategory.parentCategory?.name || "N/A"}</td>
                                         <td>{subcategory.name}</td>
                                         <td>
                                             {
-                                                <img src={`${process.env.REACT_APP_BASE_URL}/uploads/${subcategory.image}`} alt="Subcategory" className="w-16 h-16 object-cover" />
+                                                <img src={`${process.env.REACT_APP_BASE_URL}/uploads/${subcategory.image}`} alt="Subcategory" className="w-16 h-16 object-cover mx-auto" />
                                             }
                                         </td>
                                         <td>{subcategory.description}</td>

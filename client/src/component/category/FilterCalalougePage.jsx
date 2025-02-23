@@ -6,15 +6,15 @@ import GetEnquiry from '../GetEnquiry';
 
 const FilterCalalougePage = () => {
     const [products, setProducts] = useState([]);
-    const [img, setImg] = useState('')
+    // const [img, setImg] = useState('')
 
     const { name } = useParams()
     const { state } = useLocation();
 
-    const handleFullPic = (image) => {
-        setImg(image)
+    // const handleFullPic = (image) => {
+    //     setImg(image)
 
-    }
+    // }
     useEffect(() => {
         const fetchProducts = async (subCategoryId) => {
             try {
@@ -25,7 +25,7 @@ const FilterCalalougePage = () => {
             }
         };
         fetchProducts();
-    }, [img])
+    }, [])
 
     const filterProduct = products.filter(items => items.category.name === name)
 
@@ -38,7 +38,7 @@ const FilterCalalougePage = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [])
 
-    console.log(img)
+    // console.log(img)
 
     return (
 
@@ -50,23 +50,22 @@ const FilterCalalougePage = () => {
             </div>
             <p className='text-center capitalize text-[3vmax] sm:mt-5 mt-5 my-2 font-sans text-red-900'> {name} {state.subCategoryItem} Collections </p>
             <div>
-                <div className='w-full min-h-[100vh] max-h-fit  mb-4 flex justify-center'>
-                    <div className='w-[95%] flex flex-wrap'>
+                <div className='w-full  max-h-fit  mb-4 flex justify-center'>
+                    <div className='w-[95%] max-h-fit flex justify-center  flex-wrap '>
                         {
-                            filterProduct.length === 0 ? <div className='w-full h-[85vh] flex items-center justify-center text-[5vmax]'> <div className='mt-[-200px] text-gray-600'> Product Will comming soon.... </div></div> :
-                                filterProduct.filter(productItem => productItem.subCategory.name === state.subCategoryItem).length === 0 ? <div className='w-full h-[85vh] flex items-center justify-center text-[5vmax]'> <div className='mt-[-250px] text-gray-600'> Product Will comming soon.... </div> </div> : filterProduct.filter(productItem => productItem.subCategory.name === state.subCategoryItem).map((items) => {
+                            filterProduct.length === 0 ? <div className='w-full h-[85vh] flex items-center justify-center text-[2vmax]'> <div className='mt-[-200px] text-gray-400'> Product Not Available.... </div></div> :
+                                filterProduct.filter(productItem => productItem.subCategory.name === state.subCategoryItem).length === 0 ? <div className='w-full h-[85vh] flex items-center justify-center text-[2vmax]'> <div className='mt-[-250px] text-gray-400'> Product Not Available.... </div> </div> : filterProduct.filter(productItem => productItem.subCategory.name === state.subCategoryItem).map((items) => {
                                     return (
                                         <div
                                             key={items._id}
-                                            className='xl:w-64 xl:h-64 md:w-60 md:h-64 sm:w-48 sm:h-64 w-[100%] h-64 border-[0.5px] my-2 mx-5'
-                                            onClick={() => handleFullPic(`${process.env.REACT_APP_BASE_URL}/uploads/${items.image}`)}
+                                           className="cursor-pointer m-2 border xl:w-72 lg:72 md:w-72 sm:w-[98%] w-[98%] min-h-40 mix-h-fit rounded-lg p-2 shadow-md flex flex-col items-start bg-white"
+                                            // onClick={() => handleFullPic(`${process.env.REACT_APP_BASE_URL}/uploads/${items.image}`)}
                                         >
-                                            <img
-                                                src={`${process.env.REACT_APP_BASE_URL}/uploads/${items.image}`}
-                                                alt={items.name}
-                                                className="w-full h-56 p-2 object-cover"
-                                            />
-                                            <h1 className='text-center text-[20px] capitalize'>{items.name}</h1>
+                                           <img
+                                            className='w-[100%] h-68  rounded-xl'
+                                            src={`${process.env.REACT_APP_BASE_URL}/uploads/${items.image}`} alt={items.slug}
+                                        />
+                                            <h1 className='mx-auto text-[20px] text-center capitalize'>{items.name}</h1>
                                         </div>
                                     )
                                 })

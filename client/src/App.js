@@ -25,6 +25,9 @@ import FirstSignup from './component/FirstSignup';
 
 import TopLine from './component/TopLine';
 import FilterCalalougePage from './component/category/FilterCalalougePage';
+import Partners from './pages/Partners';
+import ErrorPage from './pages/ErrorPage';
+import ProductPageDetailed from './pages/ProductPageDetailed';
 
 
 function App() {
@@ -40,9 +43,12 @@ function App() {
           <Route path='/aboutUs' element={<About />} />
           <Route path='/products' element={<Product />} />
           {/* <Route path='/services' element={<Service />} /> */}
+           <Route path='/our-partners' element={<Partners />} />
           <Route path='/contactUs' element={<Contact />} />
           <Route path='/products/:name' element={<FilterCalalougePage />} />
           <Route path="/first-admin/signup" element={<FirstSignup />} />
+          <Route path="/products/:cname/:name" element={<ProductPageDetailed />} />
+          <Route path="*" element={<ErrorPage />} />
 
           {/* AdminPanel */}
           <Route path="/admin/login" element={<Login />} />

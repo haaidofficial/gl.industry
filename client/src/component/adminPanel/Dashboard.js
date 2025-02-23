@@ -23,8 +23,8 @@ const Dashboard = () => {
         <div className="min-h-[87vh] my-1 flex">
             <Sidebar />
 
-            <main className="flex-1 p-8 bg-gray-100">
-                <h1 className="text-3xl font-bold">Welcome to the Dashboard</h1>
+            <main className="flex-1 p-8 bg-gray-100 flex-col flex justify-center items-center">
+                <h1 className="text-3xl font-bold">Welcome to G.L Industries</h1>
                 <p>Use the sidebar to manage categories, subcategories, and products.</p>
             </main>
         </div>

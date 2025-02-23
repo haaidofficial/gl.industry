@@ -58,7 +58,7 @@ const Slider = () => {
     >
       {slides.map((slide) => (
         <SwiperSlide key={slide._id} className="relative flex items-center justify-center">
-          <img src={slide.imageUrl} alt={slide.title || "Slide Image"} className="w-full h-full object-fit bg-black" />
+          <img src={slide.imageUrl} alt={slide.title || "Slide Image"} className="w-[100%] h-[100%] object-initial bg-black" />
           {/* <div className="absolute text-center text-black px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-2 font-sans">{slide.tagline}</h2>
             <p className="text-lg md:text-xl opacity-90">{slide.subtitle}</p>

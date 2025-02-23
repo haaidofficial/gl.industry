@@ -3,7 +3,7 @@ const SliderImage = require("../models/sliderImageModel");
 // Get all slides (maximum 4 slides)
 exports.getSlides = async (req, res) => {
   try {
-    const slides = await SliderImage.find().limit(4);
+    const slides = await SliderImage.find().limit(8);
     res.json(slides);
   } catch (error) {
     console.error("Error fetching slides:", error);
@@ -15,7 +15,7 @@ exports.getSlides = async (req, res) => {
 exports.createSlide = async (req, res) => {
   try {
     const slideCount = await SliderImage.countDocuments();
-    if (slideCount >= 4) {
+    if (slideCount >= 8) {
       return res
         .status(400)
         .json({ message: "You can only upload up to 4 slides." });
