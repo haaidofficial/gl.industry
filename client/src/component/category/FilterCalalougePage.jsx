@@ -7,7 +7,7 @@ import GetEnquiry from '../GetEnquiry';
 const FilterCalalougePage = () => {
     const [products, setProducts] = useState([]);
     // const [img, setImg] = useState('')
-
+    const [loading, setLoading] = useState(true);
     const { name } = useParams()
     const { state } = useLocation();
 
@@ -20,18 +20,20 @@ const FilterCalalougePage = () => {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/products?subcategory=${subCategoryId}`);
                 setProducts(response.data);
+                setLoading(false);
             } catch (error) {
                 console.error("Error fetching products:", error);
+                setLoading(false);
             }
         };
-        fetchProducts();
+        setTimeout(fetchProducts,100)
     }, [])
 
     const filterProduct = products.filter(items => items.category.name === name)
 
     // console.log(state.subCategoryItem)
 
-  
+
 
 
     useEffect(() => {
@@ -39,6 +41,14 @@ const FilterCalalougePage = () => {
     }, [])
 
     // console.log(img)
+
+    if (loading) {
+        return (
+          <div className="flex justify-center items-center h-screen">
+            <p className="text-[2rem] font-semibold text-gray-700">Loading...</p>
+          </div>
+        );
+      }
 
     return (
 
@@ -58,13 +68,13 @@ const FilterCalalougePage = () => {
                                     return (
                                         <div
                                             key={items._id}
-                                           className="cursor-pointer m-2 border xl:w-72 lg:72 md:w-72 sm:w-[98%] w-[98%] min-h-40 mix-h-fit rounded-lg p-2 shadow-md flex flex-col items-start bg-white"
-                                            // onClick={() => handleFullPic(`${process.env.REACT_APP_BASE_URL}/uploads/${items.image}`)}
+                                            className="cursor-pointer m-2 border xl:w-72 lg:72 md:w-72 sm:w-[98%] w-[98%] min-h-40 mix-h-fit rounded-lg p-2 shadow-md flex flex-col items-start bg-white"
+                                        // onClick={() => handleFullPic(`${process.env.REACT_APP_BASE_URL}/uploads/${items.image}`)}
                                         >
-                                           <img
-                                            className='w-[100%] h-68  rounded-xl'
-                                            src={`${process.env.REACT_APP_BASE_URL}/uploads/${items.image}`} alt={items.slug}
-                                        />
+                                            <img
+                                                className='w-[100%] h-68  rounded-xl'
+                                                src={`${process.env.REACT_APP_BASE_URL}/uploads/${items.image}`} alt={items.slug}
+                                            />
                                             <h1 className='mx-auto text-[20px] text-center capitalize'>{items.name}</h1>
                                         </div>
                                     )
@@ -76,7 +86,7 @@ const FilterCalalougePage = () => {
             <GetEnquiry />
 
 
-           
+
         </>
     )
 }

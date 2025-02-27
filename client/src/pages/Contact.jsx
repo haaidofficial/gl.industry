@@ -1,24 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"; 
 import axios from "axios";
 import { FaRegAddressCard } from "react-icons/fa6";
 import { FaPhoneFlip } from "react-icons/fa6";
 import { SiMinutemailer } from "react-icons/si";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "", mobile: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", mobile: "", message: "" });
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    if (name === "mobile") {
+      let mobileValue = value.replace(/\D/g, ""); // Remove non-numeric characters
+      if (mobileValue.length > 10) mobileValue = mobileValue.slice(0, 10);
+      
+      setFormData({ ...formData, mobile: mobileValue });
+      setError(mobileValue.length === 10 ? "" : "Mobile number must be exactly 10 digits.");
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (formData.mobile.length !== 10) {
+      setError("Mobile number must be exactly 10 digits.");
+      return;
+    }
+
     try {
       const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/contact`, formData);
       setSuccessMessage(response.data.message);
-      setFormData({ name: "", email: "", message: "", mobile: "" });
+      setFormData({ name: "", email: "", mobile: "", message: "" });
       setErrorMessage("");
     } catch (error) {
       setErrorMessage("Failed to send the message. Please try again.");
@@ -26,69 +43,53 @@ const Contact = () => {
     }
   };
 
-useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, [])
-    
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <>
-      {/* <div className='w-full h-[50vh] backgroundImage mb-2'>
-        <div className='w-full h-[100%] flex justify-end items-center flex-col overlayOtherPage'> */}
-          {/* <h1 className='text-[7vmax] font-bold text-white text-justify textShadow mb-0'>For more<span className='text-red-900'>  Enquery</span></h1> */}
-        {/* </div>
-      </div> */}
-
-      <div className="my-4 in-h-[60vh] xl:py-2 md:py-4 sm:py-4 py-4 text-[#21a17b] flex items-center justify-center">
+      <div className="my-4 min-h-[60vh] xl:py-2 md:py-4 sm:py-4 py-4 text-[#21a17b] flex items-center justify-center">
         <div className="w-full max-w-5xl mx-auto p-4 pt-0 lg:p-10">
-          {/* Header */}
           <div className="text-center xl:mb-12 md:mb-8 sm:mb-4 mb-4">
-            <h1 className="xl:text-4xl md:text-4xl sm:text-2xl text-2xl font-bold  italic font-serif">For More Enquiry Contact Us</h1>
-            
+            <h1 className="xl:text-4xl md:text-4xl sm:text-2xl text-2xl font-bold italic font-serif">
+              For More Enquiry Contact Us
+            </h1>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-8">
-            {/* Left Section */}
             <div className="flex-1 space-y-6">
               <div className="flex items-start gap-4">
                 <div className="bg-red-400 p-3 rounded-full">
-
                   <FaRegAddressCard className="text-[1.5rem] text-white" />
-
                 </div>
                 <div>
                   <h2 className="font-bold text-lg">Address</h2>
-                  <p>G.L Industries, H-4, Sector D-1, Tronica City,
-                    Ghaziabad-210103</p>
+                  <p>G.L Industries, H-4, Sector D-1, Tronica City, Ghaziabad-210103</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
                 <div className="bg-red-400 p-3 rounded-full">
-
                   <FaPhoneFlip className="text-[1.5rem] text-white" />
                 </div>
                 <div>
                   <h2 className="font-bold text-lg">Phone</h2>
-                  <p>+91-8383977648</p> 
-                                
-              
+                  <p>+91-8383977648</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
                 <div className="bg-red-400 p-3 rounded-full">
-
                   <SiMinutemailer className="text-[1.5rem] text-white" />
                 </div>
                 <div>
                   <h2 className="font-bold text-lg">Email</h2>
-                  <p>glrs.smiley@gmail.com</p>
+                  <p>himanshig.smiley@gmail.com</p>
                 </div>
               </div>
             </div>
 
-            {/* Right Section: Contact Form */}
             <div className="flex-1 bg-[#21a17b] p-6 rounded-lg shadow-md">
               <h2 className="text-2xl font-bold mb-4 text-white">Send Message</h2>
               <form className="space-y-4" onSubmit={handleSubmit}>
@@ -111,7 +112,7 @@ useEffect(() => {
                   required
                 />
                 <input
-                  type="number"
+                  type="text"
                   name="mobile"
                   placeholder="Mobile number"
                   value={formData.mobile}
@@ -119,6 +120,7 @@ useEffect(() => {
                   className="w-full p-3 rounded-lg text-gray-900 outline-none focus:ring-2 focus:ring-red-400"
                   required
                 />
+                {error && <p className="text-red-400 text-sm">{error}</p>}
                 <textarea
                   name="message"
                   placeholder="Type your message..."
@@ -140,14 +142,13 @@ useEffect(() => {
           </div>
         </div>
       </div>
+
       {/* <div className="w-full h-fit my-4">
-        <div className="w-[95%] h-[60vh] mx-auto">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19781.578525748144!2d77.25078313197416!3d28.781583710497387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cff15cad3ae2d%3A0xa6d5925ef63a9ca4!2sTrans%20Delhi%20Signature%20City%2C%20Ghaziabad%2C%20Uttar%20Pradesh%20201102!5e0!3m2!1sen!2sin!4v1735220599361!5m2!1sen!2sin" width="100%" height="100%" allowFullScreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Tronica Ghaziabad"></iframe>
-        </div>
-      </div> */}
-
+//         <div className="w-[95%] h-[60vh] mx-auto">
+//           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19781.578525748144!2d77.25078313197416!3d28.781583710497387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cff15cad3ae2d%3A0xa6d5925ef63a9ca4!2sTrans%20Delhi%20Signature%20City%2C%20Ghaziabad%2C%20Uttar%20Pradesh%20201102!5e0!3m2!1sen!2sin!4v1735220599361!5m2!1sen!2sin" width="100%" height="100%" allowFullScreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Tronica Ghaziabad"></iframe>
+//         </div>
+//       </div> */}
     </>
-
   );
 };
 

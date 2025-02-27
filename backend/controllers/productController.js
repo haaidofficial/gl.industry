@@ -55,7 +55,6 @@ exports.getProductById = async (req, res) => {
 exports.updateProduct = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(id)
     const { name, description, subCategory, slug, status, category } = req.body;
     const updatedFields = { name, description, subCategory, slug, status, category };
 

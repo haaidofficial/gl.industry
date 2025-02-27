@@ -9,6 +9,7 @@ const ProductPageDetailed = () => {
   // const [img, setImg] = useState('')
   const { name } = useParams()
   const { state } = useLocation();
+  const [loading, setLoading] = useState(true);
 
   // const handleFullPic = (image) => {
   //   setImg(image)
@@ -18,11 +19,15 @@ const ProductPageDetailed = () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/products?subcategory=${subCategoryId}`);
         setProducts(response.data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching products:", error);
+        setLoading(false);
       }
     };
-    fetchProducts();
+    setTimeout(fetchProducts,100)
+    
+
   }, [])
 
   const filterProduct = products.filter(items => items.category.name === state.categoryItem)
@@ -30,6 +35,14 @@ const ProductPageDetailed = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [])
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-[2rem] font-semibold text-gray-700">Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -44,7 +57,7 @@ const ProductPageDetailed = () => {
           <div className='w-[95%] max-h-fit flex  flex-wrap '>
             {
               filterProduct.length === 0 ? <div className='w-full h-[85vh] flex items-center justify-center text-[2vmax]'> <div className='mt-[-200px] text-gray-400'> Product Not Available.... </div></div> :
-                filterProduct.filter(productItem => productItem.subCategory.name === name).length === 0 ? <div className='w-full h-[85vh] flex items-center justify-center text-[2vmax]'> <div className='mt-[-250px] text-gray-600'> Product Not Available.... </div> </div> : filterProduct.filter(productItem => productItem.subCategory.name === name).map((items) => {
+                filterProduct.filter(productItem => productItem.subCategory.name === name).length === 0 ? <div className='w-full h-[85vh] flex items-center justify-center text-[2vmax]'> <div className='mt-[-250px] text-gray-600'> Product Not Available in this Category .... </div> </div> : filterProduct.filter(productItem => productItem.subCategory.name === name).map((items) => {
                   return (
                     <div
                       key={items._id}
@@ -62,6 +75,8 @@ const ProductPageDetailed = () => {
             }
           </div>
         </div>
+      </div>
+      <div>
       </div>
       <GetEnquiry />
     </>

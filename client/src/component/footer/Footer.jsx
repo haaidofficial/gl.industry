@@ -71,12 +71,12 @@ const Footer = () => {
             <div className='text-gray-800 cursor-pointer my-2 flex items-center'>
               <span className='mr-2 text-lg'>
                 <MdOutlineMailOutline />
-              </span>glrs.smiley@gmail.com</div>
+              </span>himanshig.smiley@gmail.com</div>
             <div className='flex mt-6'>
               <div className='text-gray-800 hover:text-green-800 cursor-pointer ml-0'>
                 <span className='mr-2 xl:text-[2.5rem] md:text-[2.5rem] sm:text-[2rem] text-[2rem] mt-1'>
                   <a
-                    href="https://wa.me/8383977648"
+                    href="https://wa.me/918383977648"
                     className="whatsapp_float"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -87,17 +87,17 @@ const Footer = () => {
               </div>
               <div className='text-gray-800 hover:text-pink-500 cursor-pointer ml-5'>
                 <span className='mr-2 xl:text-[2.5rem] md:text-[2.5rem] sm:text-[2rem] text-[2rem]'>
-                <a href="https://www.instagram.com/gl.industries/?hl=en"><IoLogoInstagram /></a>
+                <a href="https://www.instagram.com/gl.industries/?hl=en" target="_blank" rel="noopener noreferrer"><IoLogoInstagram /></a>
                 </span>
               </div>
               <div className='text-gray-800 hover:text-blue-600 cursor-pointer ml-5'>
                 <span className='mr-2 xl:text-[2.5rem] md:text-[2.5rem] sm:text-[2rem] text-[2rem]'>
-                  <IoLogoFacebook />
+                <a href="https://www.facebook.com/profile.php?id=61573553008771" target="_blank" rel="noopener noreferrer"> <IoLogoFacebook /></a>
                 </span>
               </div>
               <div className='text-gray-800 hover:text-blue-600 cursor-pointer ml-5'>
                 <span className='mr-2 xl:text-[2.5rem] md:text-[2.5rem] sm:text-[2rem] text-[2rem]'>
-                <a href="https://linkedin.com/in/g-l-industries-9624a031b"><IoLogoLinkedin /> </a>
+                <a href="https://www.linkedin.com/in/g-l-industries-385165303/" target="_blank" rel="noopener noreferrer"><IoLogoLinkedin /> </a>
                 </span>
               </div>
             </div>
