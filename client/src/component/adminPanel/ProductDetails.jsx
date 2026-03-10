@@ -73,7 +73,7 @@ const ProductDetails = () => {
             <div className='z-10 flex items-center justify-between px-10 bg-[#1f2937] py-2 mb-[0.5px] relative top-[-65px]'>
                 <div >
                 <div className="text-[2rem] font-bold text-red-700 px-2">
-                    <NavLink to="/">G.L Industries</NavLink>
+                    <NavLink to="/">GL Exports</NavLink>
                 </div>
                 </div>
                 <div className='flex items-center'>

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { FaBars } from "react-icons/fa";
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import logo from '../../assets/newLogo.jpeg'
+import logo from '../../assets/newLogo.jpg'
 import axios from 'axios';
 
 // import logo from '../../assets/newLogo.jpg'
@@ -112,7 +112,7 @@ const Navbar = () => {
         <div className='xl:text-[1.8rem] lg:text-[1.2rem] md:text-[1.2rem] sm:text-[1.2rem] text-[1.2rem] font-thin px-2 font-sans'>
           <Link className="flex items-center h-full " to='/'>
             <img className='xl:w-60 lg:w-60 md:w-60 sm:w-60 w-60 hover:scale-105 transition-all' src={logo} alt="" />
-            {/* <div className='pl-2 py-[11px] text-[rgb(102,102,51)] pr-2 uppercase font-extrabold'>G.L Industries</div> */}
+            {/* <div className='pl-2 py-[11px] text-[rgb(102,102,51)] pr-2 uppercase font-extrabold'>GL Exports</div> */}
           </Link> </div>
 
         <ul className={openMenu ? 'md:absolute sm:absolute absolute top-16 w-full min-h-[80vh] max-h-fit uppercase xl:hidden lg:hidden flex-wrap md:flex sm:flex flex-col items-center gap-5 transition-all bg-[rgba(39,140,110,1)] py-10 px-10 flex left-0' : 'uppercase transition-all xl:flex lg:flex md:hidden sm:hidden items-center bg-[#278c6e] py-2 px-4 hidden xl:gap-12 lg:gap-6 mr-0'} >

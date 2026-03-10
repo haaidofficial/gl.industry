@@ -30,7 +30,7 @@ const About = () => {
           <img
             className='w-full h-[350px] mt-[10px]'
             src={p1}
-            alt='GLIndustries'
+            alt='GL Exports'
           />
         </div>
         <div className='xl:w-[50%] md:w-[95%] text-gray-600'>
@@ -43,7 +43,7 @@ const About = () => {
               Discover High-Quality Denim Tailored for Your Business
             </p>
             Denim is more than just fabric—it's a statement of quality,
-            durability, and style. At GL Industries, we take pride in being a
+            durability, and style. At GL Exports, we take pride in being a
             leading denim manufacturer, supplying top-notch jeans and apparel to
             businesses worldwide. Our expertise lies in crafting denim products
             that meet the demands of global fashion markets while ensuring
@@ -190,7 +190,7 @@ const About = () => {
       <div className='w-full h-fit'>
         <div className='w-[95%] py-4 mx-auto bg-gray-100 px-4'>
           <h1 className='font-bold text-red-900 italic text-[20px] pt-4'>
-            Why Choose G.L Industries
+            Why Choose GL Exports
           </h1>
           <ul className='font-serif pt-0 pl-5'>
             <li className='mt-1 tracking-wider'>
@@ -252,7 +252,7 @@ const About = () => {
         </div>
         <div className='xl:w-[50%] md:w-[95%] order-2'>
           <h1 className='text-center text-[2.5rem] text-red-900'>
-            G.L Industries
+            GL Exports
           </h1>
           <ul className='ml-5 text-gray-600'>
             <li className='list-disc '>CUSTOMIZED</li>

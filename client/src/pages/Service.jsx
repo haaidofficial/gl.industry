@@ -18,9 +18,9 @@ const Service = () => {
 
       <div className='w-full h-fit'>
         <div className='w-[95%] py-4 mx-auto'>
-          <h1 className='font-bold text-red-900 italic text-[18px]'>Welcome to G L Industries</h1>
+          <h1 className='font-bold text-red-900 italic text-[18px]'>Welcome to GL EXPORTS</h1>
           <p className='font-serif pt-0 pl-5 text-justify tracking-wider'>
-            At G L Industries, we pride ourselves on being a leading name in the manufacturing of high-quality apparel. With years of expertise and a passion for innovation, we deliver products that blend comfort, durability, and style.
+            At GL EXPORTS, we pride ourselves on being a leading name in the manufacturing of high-quality apparel. With years of expertise and a passion for innovation, we deliver products that blend comfort, durability, and style.
           </p>
           <div className='bg-gray-200 px-4 py-2 mt-5'>
             <h1 className='font-bold text-red-900 italic text-[20px]'>Our Product Range</h1>

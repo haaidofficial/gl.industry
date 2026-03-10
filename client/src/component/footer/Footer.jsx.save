@@ -30,9 +30,9 @@ const Footer = () => {
           <div className=' flex items-center'>
             <img className='w-80 ml-2 object-contain' src={logo} alt="logo" />
             {/* <img className='w-52 ml-2' src={logoText} alt="logo-text" /> */}
-            {/* <h1 className='text-[2rem] font-bold text-justify px-2'> <span className='font-serif text-[rgb(102,102,51)]'>G.L Industries</span></h1> */}
+            {/* <h1 className='text-[2rem] font-bold text-justify px-2'> <span className='font-serif text-[rgb(102,102,51)]'>GL Exports</span></h1> */}
           </div>
-          <p className='text-gray-800 mt-3 text-justify font-serif'>G.L Industries came into being in July 2008 with the initial idea seeded by the Proprietor
+          <p className='text-gray-800 mt-3 text-justify font-serif'>GL Exports came into being in July 2008 with the initial idea seeded by the Proprietor
             Mr. Ankur Goyal come with an experience of more than 15 years. Their guidance and
             motivation along with phenomenal support and abundant energy of our staff and
             workers.</p>

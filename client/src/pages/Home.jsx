@@ -21,10 +21,10 @@ const Home = () => {
         <div className='w-full h-fit my-5'>
           <div className='w-[95%] py-4 mx-auto'>
             <h1 className='font-serif my-2 text-red-900 text-center text-[28px]'>
-              Welcome to G L Industries
+              Welcome to GL EXPORTS
             </h1>
             <p className='font-serif pt-0 pl-5 tracking-wider text-md/8 text-center text-gray-600'>
-              At G L Industries, we pride ourselves on being a leading name in
+              At GL EXPORTS, we pride ourselves on being a leading name in
               the manufacturing of high-quality apparel. With years of expertise
               and a passion for innovation, we deliver products that blend
               comfort, durability, and style.
@@ -54,7 +54,7 @@ const Home = () => {
             <p className='text-justify text-md/8 tracking-wider mt-2 font-serif text-gray-600'>
               Looking for a reliable denim manufacturer to supply top-tier jeans
               and denim products? You've come to the right place! At GL
-              Industries, we specialize in producing high-quality denim apparel
+              Exports, we specialize in producing high-quality denim apparel
               that blends superior craftsmanship with the latest fashion trends.
               Whether you're a wholesaler, retailer, fashion brand, or private
               label, we provide premium denim solutions tailored to your
@@ -148,7 +148,7 @@ const Home = () => {
               tailor our services to match your exact needs.
               <br />{' '}
               <p className='text-red-900 text-center pt-4 text-[20px]'>
-                <strong> G L Industries — Where Quality Meets Style.</strong>
+                <strong> GL EXPORTS — Where Quality Meets Style.</strong>
               </p>
             </p>
           </div>

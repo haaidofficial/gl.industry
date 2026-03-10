@@ -4,7 +4,7 @@ import { IoLocationOutline, IoLogoFacebook, IoLogoInstagram, IoLogoWhatsapp, IoL
 import { MdOutlineMailOutline } from "react-icons/md";
 import { MdOutlineLocalPhone } from "react-icons/md";
 import { useLocation } from 'react-router-dom';
-import logo from '../../assets/footerLogo.jpeg'
+import logo from '../../assets/newLogo.jpg'
 // import logo from '../../assets/gl-logo1.jpg'
 // import logoText from '../../assets/gl-logo-text.png'
 // import { Link } from 'react-router-dom';
@@ -30,7 +30,7 @@ const Footer = () => {
           <div className=' flex items-center'>
             <img className='w-80 ml-2 object-contain' src={logo} alt="logo" />
             {/* <img className='w-52 ml-2' src={logoText} alt="logo-text" /> */}
-            {/* <h1 className='text-[2rem] font-bold text-justify px-2'> <span className='font-serif text-[rgb(102,102,51)]'>G.L Industries</span></h1> */}
+            {/* <h1 className='text-[2rem] font-bold text-justify px-2'> <span className='font-serif text-[rgb(102,102,51)]'>GL Exports</span></h1> */}
           </div>
           <p className='text-gray-800 mt-3 text-justify font-serif'>GL Exports came into being in July 2008 with the initial idea seeded by the Proprietor
             Mr. Ankur Goyal come with an experience of more than 15 years. Their guidance and
@@ -107,7 +107,7 @@ const Footer = () => {
       </div>
       <div className='w-full h-[1px] font-serif bg-gray-100'></div>
       <div className='bg-red-400 w-full '>
-        <p className='text-white text-center py-2'> Copyright © 2025 || All Rights Reserved.</p>
+        <p className='text-white text-center py-2'> Copyright © {new Date().getFullYear()} || All Rights Reserved.</p>
       </div>
     </>
   )
