@@ -65,7 +65,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h2 className="font-bold text-lg">Address</h2>
-                  <p>G.L Industries, H-4, Sector D-1, Tronica City, Ghaziabad-210103</p>
+                  <p>GL EXPORTS, A-46, Sector-64, NOIDA-Up, Pin-201301</p>
                 </div>
               </div>
 
@@ -143,11 +143,11 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* <div className="w-full h-fit my-4">
-//         <div className="w-[95%] h-[60vh] mx-auto">
-//           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19781.578525748144!2d77.25078313197416!3d28.781583710497387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cff15cad3ae2d%3A0xa6d5925ef63a9ca4!2sTrans%20Delhi%20Signature%20City%2C%20Ghaziabad%2C%20Uttar%20Pradesh%20201102!5e0!3m2!1sen!2sin!4v1735220599361!5m2!1sen!2sin" width="100%" height="100%" allowFullScreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Tronica Ghaziabad"></iframe>
-//         </div>
-//       </div> */}
+      <div className="w-full h-fit my-4">
+         <div className="w-[95%] h-[60vh] mx-auto">		   
+ 		<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3496.723626031357!2d77.28847887550651!3d28.78750227558049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDQ3JzE1LjAiTiA3N8KwMTcnMjcuOCJF!5e0!3m2!1sen!2sin!4v1740807981357!5m2!1sen!2sin"  width="100%" height="100%" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Tronica Ghaziabad"></iframe>
+         </div>
+      </div> 
     </>
   );
 };

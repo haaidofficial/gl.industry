@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { FaEdit } from "react-icons/fa";
@@ -21,6 +21,7 @@ const SubCategoryManagement = () => {
     const [openSideBar, setSideBar] = useState(false);
     const [subCategoryForm, setSubCategoryForm] = useState(false);
     const [filterCategory, setFilterCategory] = useState('')
+    const imageInputRef = useRef(null); // Ref for the file input
 
     const navigate = useNavigate();
 
@@ -77,6 +78,11 @@ const SubCategoryManagement = () => {
                 });
                 setSuccess('Subcategory created successfully');
             }
+
+              if (imageInputRef.current) {
+                imageInputRef.current.value = "";
+            }
+
             fetchSubCategories();
             resetForm();
         } catch (error) {
@@ -212,6 +218,7 @@ const SubCategoryManagement = () => {
                         <input
                             type="file"
                             accept="image/*"
+                            ref={imageInputRef}
                             onChange={(e) => setImage(e.target.files[0])}
                             className="p-2 border border-gray-300 rounded mb-4 w-full"
                         />

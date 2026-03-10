@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -18,6 +18,7 @@ const CreateProduct = () => {
     const [categories, setCategories] = useState([]);
     const [image, setImage] = useState(null);
     const navigate = useNavigate(); // Initialize navigation
+    const imageInputRef = useRef(null); // Ref for the file input
 
     useEffect(() => {
         // Check for token in local storage
@@ -99,8 +100,11 @@ const CreateProduct = () => {
                     status: false,
                 });
                 setImage(null);
-               
-            
+
+                if (imageInputRef.current) {
+                    imageInputRef.current.value = "";
+                }
+
             } else {
                 alert('Error creating product!');
             }
@@ -166,6 +170,7 @@ const CreateProduct = () => {
                         <input
                             type="file"
                             name="image"
+ 			    ref={imageInputRef}
                             onChange={handleImageChange}
                             className="border p-2 w-full rounded"
                         />
