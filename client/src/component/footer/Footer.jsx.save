@@ -71,7 +71,7 @@ const Footer = () => {
             <div className='text-gray-800 cursor-pointer my-2 flex items-center'>
               <span className='mr-2 text-lg'>
                 <MdOutlineMailOutline />
-              </span>himanshig.smiley@gmail.com</div>
+              </span>GLRS.smiley@gmail.com</div>
             <div className='flex mt-6'>
               <div className='text-gray-800 hover:text-green-800 cursor-pointer ml-0'>
                 <span className='mr-2 xl:text-[2.5rem] md:text-[2.5rem] sm:text-[2rem] text-[2rem] mt-1'>

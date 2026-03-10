@@ -9,7 +9,7 @@ const TopLine = () => {
       <div className='flex flex-col sm:flex-row items-center justify-center w-full sm:w-auto'>
         <div className='cursor-pointer flex items-center text-red-900 text-sm sm:text-base md:text-lg xl:text-xl mb-2 sm:mb-0 sm:mr-5'>
           <MdOutlineMailOutline className='mr-1' />
-          <p className='text-xs sm:text-sm md:text-base mr-3'>himanshig.smiley@gmail.com</p>
+          <p className='text-xs sm:text-sm md:text-base mr-3'>GLRS.smiley@gmail.com</p>
         {/* </div> */}
         {/* <div className='cursor-pointer flex items-center text-red-900 text-sm sm:text-base md:text-lg xl:text-xl'> */}
           <MdOutlineLocalPhone className='mr-1' />
